@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.movieapp.login.LoginFragment">
+
+    <data>
+        <variable
+            name="myLoginViewModel"
+            type="com.example.movieapp.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:id="@+id/header"
+            style="@style/page_header_style"
+            android:text="@string/header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/userNameTextField"
+            style="@style/inputTextStyle"
+            android:hint="@string/UsernameTextField"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:text="@={myLoginViewModel.inputUsername}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header" />
+
+        <EditText
+            android:id="@+id/passwordTextField"
+            style="@style/inputTextStyle"
+            android:hint="@string/PasswordTextField"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:text="@={myLoginViewModel.inputPassword}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userNameTextField" />
+
+        <Button
+            android:id="@+id/submitButton"
+            style="@style/button_style"
+            android:text="@string/Login_button"
+            android:onClick="@{()->myLoginViewModel.loginButton()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordTextField" />
+
+        <Button
+            android:id="@+id/SignUpButton"
+            style="@style/sign_up_button_style"
+            android:onClick="@{()->myLoginViewModel.signUp()}"
+            android:text="@string/signupText"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/submitButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

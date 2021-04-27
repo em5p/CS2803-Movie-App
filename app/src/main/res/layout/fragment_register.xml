@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.mydatabaseapp.register.RegisterFragment">
+
+    <data>
+        <variable
+            name="myViewModel"
+            type="com.example.movieapp.register.RegisterViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_header"
+            style="@style/page_header_style"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/register_instructions"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/cardo"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="@string/register_instructions"/>
+
+        <EditText
+            android:id="@+id/firstNameTextField"
+            style="@style/inputTextStyle"
+            android:hint="@string/FirstNameTextField"
+            android:importantForAutofill="no"
+            android:text="@={myViewModel.inputFirstName}"/>
+
+        <EditText
+            android:id="@+id/lastNameTextField"
+            style="@style/inputTextStyle"
+            android:hint="@string/LastNameTextField"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:text="@={myViewModel.inputLastName}" />
+
+
+        <EditText
+            android:id="@+id/emailTextField"
+            style="@style/inputTextStyle"
+            android:autofillHints=""
+            android:hint="@string/enter_email_text"
+            android:inputType="textEmailAddress"
+            android:text="@={myViewModel.inputEmail}" />
+
+        <EditText
+            android:id="@+id/userNameTextField"
+            style="@style/inputTextStyle"
+            android:hint="@string/register_username_text"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:text="@={myViewModel.inputUsername}" />
+
+        <EditText
+            android:id="@+id/passwordTextField"
+            style="@style/inputTextStyle"
+            android:hint="@string/register_password_text"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:text="@={myViewModel.inputPassword}" />
+
+        <Button
+            android:id="@+id/submitButton"
+            style="@style/button_style"
+            android:onClick="@{()->myViewModel.submitButton()}"
+            android:text="@string/submitButton" />
+    </LinearLayout>
+
+</layout>
