@@ -23,5 +23,8 @@ data class RegisterEntity(
     var userName: String,
 
     @ColumnInfo(name = "password_text")
-    var passwrd: String
+    var passwrd: String,
+
+    @ColumnInfo(name = "movieList")
+    var movies: String
 )

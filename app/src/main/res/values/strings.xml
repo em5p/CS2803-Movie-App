@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Movie App</string>
+    <string name="movie_name_text">movie_name</string>
+    <string name="movie_rating_text">movie_rating</string>
+    <string name="add_button_text">add</string>
+    <string name="Login_text">Login</string>
+    <string name="UserNameTextView">Username</string>
+    <string name="PasswordText">Password</string>
+    <string name="UsernameTextField">Username</string>
+    <string name="PasswordTextField">Password</string>
+    <string name="Login_button">Login</string>
+    <string name="signupText">Sign Up</string>
+    <string name="header">Movie App</string>
+    <string name="FirstNameTextField">Enter first name</string>
+    <string name="LastNameTextField">Enter last name</string>
+    <string name="enter_email_text">Enter email</string>
+    <string name="PasswordTextFiels">Enter password</string>
+    <string name="register_password_text">Enter password</string>
+    <string name="register_username_text">Enter username</string>
+    <string name="submitButton">Register</string>
+    <string name="register_header">Create Account</string>
+    <string name="register_instructions">Please fill in all fields</string>
+</resources>

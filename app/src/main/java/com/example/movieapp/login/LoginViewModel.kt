@@ -76,7 +76,7 @@ class LoginViewModel(private val repository: RegisterRepository, application: Ap
                         inputUsername.value = null
                         inputPassword.value = null
                         _navigatetoMovieListScreen.value = true
-//                        _navigatetoUserDetails.value = true
+//                      _navigatetoUserDetails.value = true
                     }else{
                         _errorToastInvalidPassword.value = true
                     }
