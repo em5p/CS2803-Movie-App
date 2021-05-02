@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/colorPrimaryDark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/movie_name"
+            style="@style/page_header_style"
+            tools:text="Movie name" />
+
+        <TextView
+            android:id="@+id/rating_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/label_style"
+            android:text="@string/rating_text" />
+
+        <TextView
+            android:id="@+id/movie_rating"
+            style="@style/inputTextStyle"
+            tools:text="Rating: out of 5" />
+
+        <TextView
+            android:id="@+id/provider_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/label_style"
+            android:text="@string/provider_text" />
+
+        <TextView
+            android:id="@+id/movie_provider"
+            style="@style/inputTextStyle"
+            tools:text="Provider" />
+
+        <TextView
+            android:id="@+id/review_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/label_style"
+            android:text="@string/review_text" />
+
+        <TextView
+            android:id="@+id/movie_review"
+            style="@style/inputTextStyle"
+            tools:text="Review" />
+
+        <Button
+            android:id="@+id/edit_button"
+            style="@style/button_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:gravity="bottom|end"
+            android:text="@string/edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </LinearLayout>
+
+
+</ScrollView>

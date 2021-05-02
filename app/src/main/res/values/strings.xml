@@ -20,4 +20,14 @@
     <string name="submitButton">Register</string>
     <string name="register_header">Create Account</string>
     <string name="register_instructions">Please fill in all fields</string>
+    <string name="add_review_text">Add a review</string>
+    <string name="title_label">Title:</string>
+    <string name="rank_label">Rank: out of 5</string>
+    <string name="review_label">Review:</string>
+    <string name="provider_label">Provider:</string>
+    <string name="done_text">Done</string>
+    <string name="edit">Edit</string>
+    <string name="rating_text">Rating: out of 5</string>
+    <string name="provider_text">Provider:</string>
+    <string name="review_text">Review:</string>
 </resources>

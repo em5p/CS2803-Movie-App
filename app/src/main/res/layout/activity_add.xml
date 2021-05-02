@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/add_review_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_review_text"
+        style="@style/page_header_style"/>
+
+    <TextView
+        android:id="@+id/title_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_label"
+        style="@style/label_style"/>
+
+    <EditText
+        android:id="@+id/title_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        style="@style/inputTextStyle"
+        android:autofillHints="Enter title"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/rank_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rank_label"
+        style="@style/label_style"/>
+
+    <EditText
+        android:id="@+id/rank_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        style="@style/inputTextStyle"
+        android:autofillHints="Enter rank"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/provider_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/provider_label"
+        style="@style/label_style"/>
+
+    <EditText
+        android:id="@+id/provider_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        style="@style/inputTextStyle"
+        android:autofillHints="Enter provider"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/review_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/review_label"
+        style="@style/label_style"/>
+
+    <EditText
+        android:id="@+id/review_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        style="@style/inputTextStyle"
+        android:autofillHints="Enter review"
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/add_done_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/done_text" />
+</LinearLayout>

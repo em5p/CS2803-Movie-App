@@ -48,7 +48,7 @@ class MovieListScreen : AppCompatActivity() {
         }
 
         add_button.setOnClickListener {
-            val intent = Intent(this,NewMovieReview::class.java)
+            val intent = Intent(this, NewMovieReview::class.java)
             startActivityForResult(intent, ADD_MOVIE)
         }
     }

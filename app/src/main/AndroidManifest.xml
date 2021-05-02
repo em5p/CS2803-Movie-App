@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieApp">
         <activity android:name="com.example.movieapp.MovieListScreen"/>
+        <activity android:name="com.example.movieapp.NewMovieReview"/>
+        <activity android:name="com.example.movieapp.MovieCardActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
