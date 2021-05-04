@@ -4,10 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.example.movieapp.database.RegisterDatabase
 import kotlinx.android.synthetic.main.activity_add.*
-import com.example.movieapp.MovieListScreen.Companion.MOVIES
 import com.example.movieapp.MovieListScreen.Companion.user
+import com.example.movieapp.movie.MovieReviewDatabase
+import com.example.movieapp.movie.MovieReviewEntity
+import com.example.movieapp.movie.MovieViewModel
 
 class NewMovieReview: AppCompatActivity() {
 
@@ -43,8 +44,10 @@ class NewMovieReview: AppCompatActivity() {
                     rating_input.text.toString().toDouble(), provider_input.text.toString(),
                     review_input.text.toString())
             Log.i("NewMovieReview", "new review: " + newReview.toString())
-            movieViewModel.insertMovieReview(newReview)
-            Log.i("NewMovieReview", "movie list: " + movieViewModel.getMovieReviews(user))
+//            movieViewModel.insertMovieReview(newReview)
+            movieViewModel.insert(newReview)
+            Log.i("NewMovieReview", "all movie list: " + movieViewModel.getAllMovieReviews())
+            Log.i("NewMovieReview", "user movie list: " + movieViewModel.getUserMovieReviews(user))
             // add to database??
 
             startActivityForResult(doneIntent, 1)

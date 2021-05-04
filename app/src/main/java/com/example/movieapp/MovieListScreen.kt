@@ -6,11 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.movieapp.database.RegisterDatabase
+import com.example.movieapp.movie.MovieReviewDatabase
+import com.example.movieapp.movie.MovieReviewEntity
+import com.example.movieapp.movie.MovieViewModel
 import kotlinx.android.synthetic.main.activity_recycler_view.*
-import kotlinx.android.synthetic.main.review_list_item.*
-import kotlin.reflect.typeOf
 
 
 class MovieListScreen : AppCompatActivity() {
@@ -33,8 +32,8 @@ class MovieListScreen : AppCompatActivity() {
         Log.i("MovieListScreen", "user: " + user)
         val password = intent.getStringExtra("password")
 
-//        val movie_list = movieViewModel.getMovieReviews()
-        val movie_list = movieViewModel.getMovieReviews(user)
+        val movie_list = movieViewModel.getUserMovieReviews(user)
+//        val movie_list = movieViewModel.getMovieReviews(user)
         MOVIES.addAll(movie_list)
         Log.i("movieListScreen", "Movies list: " + MOVIES.toString())
 
@@ -52,11 +51,11 @@ class MovieListScreen : AppCompatActivity() {
 
             intent.putExtra("position", position)
             Log.i("MovieListScreen", "position: " + position)
-            intent.putExtra("username", MOVIES[position].username)
-            intent.putExtra("movie name", MOVIES[position].title)
-            intent.putExtra("movie rating", MOVIES[position].rating)
-            intent.putExtra("movie provider", MOVIES[position].provider)
-            intent.putExtra("movie review", MOVIES[position].review)
+            intent.putExtra("user", MOVIES[position].username)
+            intent.putExtra("title", MOVIES[position].title)
+            intent.putExtra("rating", MOVIES[position].rating)
+            intent.putExtra("provider", MOVIES[position].provider)
+            intent.putExtra("review", MOVIES[position].review)
 
             startActivity(intent)
         }

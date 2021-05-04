@@ -3,7 +3,6 @@ package com.example.movieapp.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.movieapp.MovieReviewEntity
 
 @Entity(tableName = "Register_users_table")
 data class RegisterEntity(

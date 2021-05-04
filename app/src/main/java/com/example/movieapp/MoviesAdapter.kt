@@ -6,12 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.movieapp.movie.MovieReviewEntity
 import kotlinx.android.synthetic.main.review_list_item.view.*
 
 class MoviesAdapter(
-    var activity: Activity,
-    var movieList: ArrayList<MovieReviewEntity>,
-    var getPosition: (Int) -> Unit): RecyclerView.Adapter<MoviesViewHolder>() {
+        var activity: Activity,
+        var movieList: ArrayList<MovieReviewEntity>,
+        var getPosition: (Int) -> Unit): RecyclerView.Adapter<MoviesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder =
         MoviesViewHolder(
@@ -30,7 +31,7 @@ class MoviesAdapter(
 }
 
 class MoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    var movieName: TextView = itemView.movie_name
+    var movieName: TextView = itemView.movie_title
     var movieRating: TextView = itemView.movie_rating
     var view: View = itemView
 

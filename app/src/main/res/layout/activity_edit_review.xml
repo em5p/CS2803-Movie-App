@@ -26,10 +26,11 @@
             style="@style/label_style"
             android:text="@string/rating_text" />
 
-        <TextView
-            android:id="@+id/movie_rating"
+        <EditText
+            android:id="@+id/edit_rating"
             style="@style/inputTextStyle"
-            tools:text="Rating: out of 5" />
+            android:autofillHints="edit rating"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/provider_label"
@@ -38,10 +39,11 @@
             style="@style/label_style"
             android:text="@string/provider_text" />
 
-        <TextView
-            android:id="@+id/movie_provider"
+        <EditText
+            android:id="@+id/edit_provider"
             style="@style/inputTextStyle"
-            tools:text="Provider" />
+            android:autofillHints="edit provider"
+            tools:ignore="LabelFor"/>
 
         <TextView
             android:id="@+id/review_label"
@@ -50,19 +52,20 @@
             style="@style/label_style"
             android:text="@string/review_text" />
 
-        <TextView
-            android:id="@+id/movie_review"
+        <EditText
+            android:id="@+id/edit_review"
             style="@style/inputTextStyle"
-            tools:text="Review" />
+            android:autofillHints="edit rating"
+            tools:ignore="LabelFor"/>
 
         <Button
-            android:id="@+id/edit_button"
+            android:id="@+id/edit_done_button"
             style="@style/button_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
+            android:layout_gravity="bottom|center_horizontal"
             android:gravity="bottom|end"
-            android:text="@string/edit"
+            android:text="@string/done_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
