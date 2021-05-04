@@ -1,5 +1,6 @@
 package com.example.movieapp.movie
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -25,6 +26,10 @@ interface MovieReviewDao {
     suspend fun getAllTitles(user: String): List<String>
 
 
+    @Query("UPDATE movieReviewInfo SET rating = :newRating, provider = :newProvider, review = :newReview WHERE username = :user AND title = :title_")
+    suspend fun updateReview(newRating: String, newProvider: String, newReview: String, user: String, title_: String)
+
     @Query("SELECT MAX(reviewID) FROM movieReviewInfo")
     suspend fun getMaxID(): Int
+
 }

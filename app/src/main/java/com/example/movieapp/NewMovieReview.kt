@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.movieapp.MovieListScreen.Companion.MOVIES
 import kotlinx.android.synthetic.main.activity_add.*
 import com.example.movieapp.MovieListScreen.Companion.user
 import com.example.movieapp.movie.MovieReviewDatabase
@@ -47,7 +48,7 @@ class NewMovieReview: AppCompatActivity() {
 //            movieViewModel.insertMovieReview(newReview)
             movieViewModel.insert(newReview)
             // add to database??
-
+            MOVIES.add(newReview)
             startActivityForResult(doneIntent, 1)
 //            finish()
         }

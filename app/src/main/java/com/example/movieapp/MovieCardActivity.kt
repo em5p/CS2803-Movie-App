@@ -32,9 +32,9 @@ class MovieCardActivity: AppCompatActivity() {
 
             val editIntent = Intent(this, EditReview::class.java)
             editIntent.putExtra("title", movie_title.text.toString())
-            editIntent.putExtra("rating", movie_rating.text.toString())
+            editIntent.putExtra("rating", movie_rating.text.toString().toDouble())
             editIntent.putExtra("provider", movie_provider.text.toString())
-            editIntent.putExtra("review", movie_provider.text.toString())
+            editIntent.putExtra("review", movie_review.text.toString())
             startActivityForResult(editIntent, EDIT_CODE)
         }
 

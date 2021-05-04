@@ -21,6 +21,7 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".NewMovieReview"/>
         <activity android:name=".MovieCardActivity"/>
+        <activity android:name=".EditReview"/>
 
     </application>
 
