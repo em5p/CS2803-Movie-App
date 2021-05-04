@@ -41,13 +41,13 @@
         style="@style/label_style"/>
 
     <EditText
-        android:id="@+id/rank_input"
+        android:id="@+id/rating_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal"
         style="@style/inputTextStyle"
-        android:autofillHints="Enter rank"
+        android:autofillHints="Enter rating"
         tools:ignore="LabelFor" />
 
     <TextView

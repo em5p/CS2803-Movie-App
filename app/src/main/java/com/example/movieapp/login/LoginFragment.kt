@@ -61,7 +61,11 @@ class LoginFragment : Fragment() {
                 Log.i("LoginFragment", "inside observe for nav to movie list screen")
 //                submitButton.setOnClickListener {
                 requireActivity().run {
-                    startActivity(Intent(this, MovieListScreen::class.java))
+                    val listIntent = Intent(this, MovieListScreen::class.java)
+                    listIntent.putExtra("user", loginViewModel.inputUsername.value)
+                    Log.i("LoginFragment", "username: " + loginViewModel.inputUsername.value)
+                    listIntent.putExtra("password", loginViewModel.inputPassword.value)
+                    startActivity(listIntent)
                     finish()
 //                    }
                 }

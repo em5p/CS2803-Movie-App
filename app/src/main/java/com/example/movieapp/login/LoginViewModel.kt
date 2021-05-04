@@ -73,9 +73,9 @@ class LoginViewModel(private val repository: RegisterRepository, application: Ap
                 if (usersNames != null) {
                     if(usersNames.passwrd == inputPassword.value){
                         Log.i("LoginViewModel", "Successful Login!")
+                        _navigatetoMovieListScreen.value = true
                         inputUsername.value = null
                         inputPassword.value = null
-                        _navigatetoMovieListScreen.value = true
 //                      _navigatetoUserDetails.value = true
                     }else{
                         _errorToastInvalidPassword.value = true
