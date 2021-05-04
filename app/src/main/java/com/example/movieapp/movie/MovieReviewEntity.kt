@@ -2,9 +2,10 @@ package com.example.movieapp.movie
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "movieReviewInfo")
+@Entity(indices = [Index(value = ["username", "title"], unique = true)], tableName = "movieReviewInfo")
 data class MovieReviewEntity (
     @PrimaryKey(autoGenerate = true)
     var reviewID: Int = 0,

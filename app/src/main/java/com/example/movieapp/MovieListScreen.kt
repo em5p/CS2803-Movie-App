@@ -9,6 +9,7 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.movieapp.movie.MovieReviewDao
 import com.example.movieapp.movie.MovieReviewDatabase
 import com.example.movieapp.movie.MovieReviewEntity
 import com.example.movieapp.movie.MovieViewModel
@@ -33,15 +34,30 @@ class MovieListScreen : AppCompatActivity() {
 
         user = intent.getStringExtra("user").toString()
         Log.i("MovieListScreen", "user: " + user)
+
 //        val password = intent.getStringExtra("password")
 
+
+        val movie1 = MovieReviewEntity(0, "d", "ladybird", 4.3, "netflix", "good watch")
+        val movie2 = MovieReviewEntity(0, "s", "inside out", 3.7, "disney", "good")
+        val movie3 = MovieReviewEntity(0, "r", "grave of the fireflies", 4.5, "online", "good")
+        val movie4 = MovieReviewEntity(0, "r", "spirited away", 5.0, "online", "good")
+        val movie5 = MovieReviewEntity(0, "p", "parasite", 4.2, "netflix", "deep")
+
+        movieViewModel.insert(movie1)
+        movieViewModel.insert(movie2)
+        movieViewModel.insert(movie3)
+        movieViewModel.insert(movie4)
+        movieViewModel.insert(movie5)
+
+
+//        addMovieData()
+        movieViewModel.getAllMovieReviews()
         val movie_list = movieViewModel.getUserMovieReviews(user)
         Log.i("movieListScreen", "onCreate movie_list: " + movie_list.toString())
 //        val movie_list = movieViewModel.getMovieReviews(user)
         MOVIES.addAll(movie_list)
         Log.i("movieListScreen", "MOVIES list oncreate: " + MOVIES.toString())
-
-//        addMovieData()
 
         // creates a vertical linear layout manager
         rv_movies.layoutManager = LinearLayoutManager(this)
@@ -67,7 +83,7 @@ class MovieListScreen : AppCompatActivity() {
         search_bar.isSubmitButtonEnabled = false
         search_bar.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                var allList = movieViewModel.getAllTitles(user)
+                val allList = movieViewModel.getAllTitles(user)
                 Log.i("MovieListScreen", "all movie titles: " + allList)
                 if (allList.contains(query)) {
                     Log.i("MovieListScreen", "found movie!")
@@ -117,37 +133,19 @@ class MovieListScreen : AppCompatActivity() {
 
     // add at least 5 sample entries to demonstrate functionality
 //    private fun addMovieData() {
-//        val movie1 = MovieReviewEntity(0, "username", "movie name",
-//            0.0, "provider", "review")
-//        val movie2 = MovieReviewEntity(1, "username2", "movie name2",
-//            0.0, "provider2", "review2")
-//        val movie3 = MovieReviewEntity(2, "username3",  "movie name3",
-//            0.0, "provider3", "review3")
-//        val movie4 = MovieReviewEntity(3, "username4",  "movie name4",
-//            0.0, "provider4", "review4")
-//        val movie5 = MovieReviewEntity(4, "username5", "movie name5",
-//            0.0, "provider5", "review5")
-//        val movie6 = MovieReviewEntity(5, "username6", "movie name6",
-//            0.0, "provider6", "review6")
-//        val movie7 = MovieReviewEntity(6, "username7", "movie name7",
-//            0.0, "provider7", "review7")
-//        val movie8 = MovieReviewEntity(7, "username8",  "movie name8",
-//            0.0, "provider8", "review8")
-//        val movie9 = MovieReviewEntity(8, "username9", "movie name9",
-//            0.0, "provider9", "review9")
-//        val movie10 = MovieReviewEntity(9, "username10","movie name10",
-//            0.0, "provider10", "review10")
+//        val dataSource = MovieReviewDatabase.getInstance(this).movieReviewDao
+//        val movieViewModel = MovieViewModel(dataSource, this.application)
 //
+//        val movie1 = MovieReviewEntity(0, "d", "ladybird", 4.3, "netflix", "good watch")
+//        val movie2 = MovieReviewEntity(0, "s", "inside out", 3.7, "disney", "good")
+//        val movie3 = MovieReviewEntity(0, "r", "grave of the fireflies", 4.5, "online", "good")
+//        val movie4 = MovieReviewEntity(0, "r", "spirited away", 5.0, "online", "good")
+//        val movie5 = MovieReviewEntity(0, "s", "parasite", 4.2, "netflix", "deep")
 //
-//        MOVIES.add(movie1)
-//        MOVIES.add(movie2)
-//        MOVIES.add(movie3)
-//        MOVIES.add(movie4)
-//        MOVIES.add(movie5)
-//        MOVIES.add(movie6)
-//        MOVIES.add(movie7)
-//        MOVIES.add(movie8)
-//        MOVIES.add(movie9)
-//        MOVIES.add(movie10)
+//        movieViewModel.insert(movie1)
+//        movieViewModel.insert(movie2)
+//        movieViewModel.insert(movie3)
+//        movieViewModel.insert(movie4)
+//        movieViewModel.insert(movie5)
 //    }
 }
