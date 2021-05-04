@@ -40,14 +40,12 @@ class NewMovieReview: AppCompatActivity() {
             val max = movieViewModel.getMaxId()
             Log.i("NewMovieReview", "Max id: " + max)
 
-            val newReview = MovieReviewEntity(max + 1, user, title_input.text.toString(),
+            val newReview = MovieReviewEntity(0, user, title_input.text.toString(),
                     rating_input.text.toString().toDouble(), provider_input.text.toString(),
                     review_input.text.toString())
             Log.i("NewMovieReview", "new review: " + newReview.toString())
 //            movieViewModel.insertMovieReview(newReview)
             movieViewModel.insert(newReview)
-            Log.i("NewMovieReview", "all movie list: " + movieViewModel.getAllMovieReviews())
-            Log.i("NewMovieReview", "user movie list: " + movieViewModel.getUserMovieReviews(user))
             // add to database??
 
             startActivityForResult(doneIntent, 1)

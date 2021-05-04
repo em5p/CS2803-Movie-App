@@ -21,6 +21,9 @@ interface MovieReviewDao {
 //    suspend fun getMovieReviews(userName: String): List<MovieReviewEntity>
 //    suspend fun getMovieReviews(): List<MovieReviewEntity>
 
+    @Query("SELECT title FROM movieReviewInfo WHERE username = :user")
+    suspend fun getAllTitles(user: String): List<String>
+
 
     @Query("SELECT MAX(reviewID) FROM movieReviewInfo")
     suspend fun getMaxID(): Int

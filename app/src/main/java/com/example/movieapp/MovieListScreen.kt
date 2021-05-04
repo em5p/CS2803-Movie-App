@@ -4,6 +4,9 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieapp.movie.MovieReviewDatabase
@@ -30,12 +33,13 @@ class MovieListScreen : AppCompatActivity() {
 
         user = intent.getStringExtra("user").toString()
         Log.i("MovieListScreen", "user: " + user)
-        val password = intent.getStringExtra("password")
+//        val password = intent.getStringExtra("password")
 
         val movie_list = movieViewModel.getUserMovieReviews(user)
+        Log.i("movieListScreen", "onCreate movie_list: " + movie_list.toString())
 //        val movie_list = movieViewModel.getMovieReviews(user)
         MOVIES.addAll(movie_list)
-        Log.i("movieListScreen", "Movies list: " + MOVIES.toString())
+        Log.i("movieListScreen", "MOVIES list oncreate: " + MOVIES.toString())
 
 //        addMovieData()
 
@@ -59,6 +63,23 @@ class MovieListScreen : AppCompatActivity() {
 
             startActivity(intent)
         }
+
+        search_bar.isSubmitButtonEnabled = false
+        search_bar.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                var allList = movieViewModel.getAllTitles(user)
+                Log.i("MovieListScreen", "all movie titles: " + allList)
+                if (allList.contains(query)) {
+                    Log.i("MovieListScreen", "found movie!")
+                } else {
+                    Toast.makeText(this@MovieListScreen, "No Match found", Toast.LENGTH_LONG).show()
+                }
+                return false
+            }
+            override fun onQueryTextChange(newText: String): Boolean {
+                return false
+            }
+        })
 
         add_button.setOnClickListener {
             val intent = Intent(this, NewMovieReview::class.java)

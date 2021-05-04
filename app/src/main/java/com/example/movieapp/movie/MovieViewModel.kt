@@ -42,6 +42,15 @@ class MovieViewModel(
         return num
     }
 
+    fun getAllTitles(user: String): List<String> {
+        var titles: List<String> = arrayListOf<String>()
+        viewModelScope.launch {
+            titles = database.getAllTitles(user)
+            Log.i("MovieViewModel", "all movie titles: " + titles)
+        }
+        return titles
+    }
+
     fun getMaxId(): Int {
         var max = 0
         viewModelScope.launch {
