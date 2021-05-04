@@ -4,23 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context=".MovieListScreen">
-
-
-    <SearchView
-        android:id="@+id/search_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryMedium"
-        android:queryHint="Search for a movie"
-        android:layout_margin="5dp" />
+    tools:context=".MovieListScreen"
+    android:padding="5dp">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_movies"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         tools:listitem="@layout/review_list_item"
-        android:layout_below="@id/search_bar"
         android:layout_above="@id/add_button">
     </androidx.recyclerview.widget.RecyclerView>
 

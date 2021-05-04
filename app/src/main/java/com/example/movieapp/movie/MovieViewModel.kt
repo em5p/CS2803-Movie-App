@@ -21,6 +21,16 @@ class MovieViewModel(
         var list: List<MovieReviewEntity> = arrayListOf<MovieReviewEntity>()
         viewModelScope.launch {
             list = database.getAllMovieReviews()
+            var size = MOVIES.size
+            var exists = false
+            for (movie in list) {
+                for (i in 0..size-1) {
+                    if (MOVIES[i].title == movie.title && MOVIES[i].username == movie.username)
+                        exists = true
+                }
+                if (!exists)
+                    MOVIES.add(movie)
+            }
             Log.i("MovieViewModel", "all reviews list size ${list.size}: " + list)
         }
         return list

@@ -50,8 +50,8 @@ class EditReview: AppCompatActivity() {
         }
 
         val actionbar = supportActionBar
-        // title of the page to edit trip
-        actionbar!!.title = "Edit Trip"
+        // title of the page to edit review
+        actionbar!!.title = "Edit Review"
 
         //set back button
         actionbar.setDisplayHomeAsUpEnabled(true)
