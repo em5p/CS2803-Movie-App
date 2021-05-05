@@ -55,6 +55,21 @@
             style="@style/inputTextStyle"
             tools:text="Review" />
 
+        <TextView
+            android:id="@+id/imdb_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/label_style"
+            android:text="@string/imdblink" />
+
+        <TextView
+            android:id="@+id/link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:linksClickable="true"
+             />
+
         <Button
             android:id="@+id/edit_button"
             style="@style/button_style"

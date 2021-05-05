@@ -3,6 +3,7 @@ package com.example.movieapp
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_movie_card.*
 
@@ -25,6 +26,10 @@ class MovieCardActivity: AppCompatActivity() {
         movie_rating.text = intent.getDoubleExtra("rating", 0.0).toString()
         movie_provider.text = intent.getStringExtra("provider")
         movie_review.text = intent.getStringExtra("review")
+
+        val imdbLink:TextView = findViewById(R.id.link)
+        val link:String = "https://www.imdb.com/find?q=" + movie_title.text
+        imdbLink.setText(link)
 
 
         edit_button.setOnClickListener {
