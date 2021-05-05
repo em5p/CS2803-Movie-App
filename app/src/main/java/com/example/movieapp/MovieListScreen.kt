@@ -99,6 +99,8 @@ class MovieListScreen : AppCompatActivity() {
             }
         }
         displayList.addAll(userMovieList)
+        var newList = ArrayList<MovieReviewEntity>()
+        newList.addAll(displayList.sortedWith(compareBy({it.rating})).reversed())
 
         Log.i("movieListScreen", "MOVIES list oncreate: " + MOVIES.toString())
         Log.i("movieListScreen", "user movie list oncreate: " + userMovieList.toString())
@@ -109,7 +111,8 @@ class MovieListScreen : AppCompatActivity() {
         //adapter with click listener
 //        rv_movies.adapter = MoviesAdapter(this, MOVIES) {
         Log.i("MovieListScreen", "display list: " + displayList)
-        rv_movies.adapter = MoviesAdapter(this, displayList) {
+
+        rv_movies.adapter = MoviesAdapter(this, newList) {
             // do something when clicked
                 position ->
             Log.i("MovieListScreen", "movie clicked")
@@ -117,11 +120,11 @@ class MovieListScreen : AppCompatActivity() {
 
             intent.putExtra("position", position)
             Log.i("MovieListScreen", "position: " + position)
-            intent.putExtra("user", displayList[position].username)
-            intent.putExtra("title", displayList[position].title)
-            intent.putExtra("rating", displayList[position].rating)
-            intent.putExtra("provider", displayList[position].provider)
-            intent.putExtra("review", displayList[position].review)
+            intent.putExtra("user", newList[position].username)
+            intent.putExtra("title", newList[position].title)
+            intent.putExtra("rating", newList[position].rating)
+            intent.putExtra("provider", newList[position].provider)
+            intent.putExtra("review", newList[position].review)
 
             startActivity(intent)
         }
