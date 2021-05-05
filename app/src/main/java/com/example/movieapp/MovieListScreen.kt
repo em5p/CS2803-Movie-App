@@ -23,6 +23,7 @@ class MovieListScreen : AppCompatActivity() {
     val ADD_MOVIE = 1
     var userMovieList: ArrayList<MovieReviewEntity> = arrayListOf()
     var displayList: ArrayList<MovieReviewEntity> = arrayListOf()
+    var newList = ArrayList<MovieReviewEntity>()
 
     companion object {
         var MOVIES: ArrayList<MovieReviewEntity> = ArrayList<MovieReviewEntity>()
@@ -99,7 +100,6 @@ class MovieListScreen : AppCompatActivity() {
             }
         }
         displayList.addAll(userMovieList)
-        var newList = ArrayList<MovieReviewEntity>()
         newList.addAll(displayList.sortedWith(compareBy({it.rating})).reversed())
 
         Log.i("movieListScreen", "MOVIES list oncreate: " + MOVIES.toString())
@@ -148,17 +148,17 @@ class MovieListScreen : AppCompatActivity() {
 
                 override fun onQueryTextChange(newText: String?): Boolean {
                     if (newText!!.isNotEmpty()) {
-                        displayList.clear()
+                        newList.clear()
                         val search = newText.toLowerCase(Locale.getDefault())
                         userMovieList.forEach {
                             if (it.title.toLowerCase(Locale.getDefault()).contains(search)) {
-                                displayList.add(it)
+                                newList.add(it)
                             }
                         }
                         rv_movies.adapter!!.notifyDataSetChanged()
                     } else {
-                        displayList.clear()
-                        displayList.addAll(userMovieList)
+                        newList.clear()
+                        newList.addAll(userMovieList)
                         rv_movies.adapter!!.notifyDataSetChanged()
                     }
                     return true
