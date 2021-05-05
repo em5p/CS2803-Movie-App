@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.movieapp.MovieListScreen.Companion.MOVIES
 import kotlinx.android.synthetic.main.activity_edit_review.*
 import com.example.movieapp.MovieListScreen.Companion.user
 import com.example.movieapp.movie.MovieReviewDatabase
@@ -40,6 +41,14 @@ class EditReview: AppCompatActivity() {
                 Log.i("EditReview", "inside")
                 val replaceReview = MovieReviewEntity(0, user, title, rating, provider, review)
                 movieViewModel.updateReview(replaceReview)
+                val size = MOVIES.size
+                for (i in MOVIES.indices) {
+                    if (replaceReview.username == MOVIES[i].username && replaceReview.title == MOVIES[i].title) {
+                        Log.i("NewMovieReview", "removed movie: " + MOVIES[i].toString())
+                        MOVIES.removeAt(i);
+                        MOVIES.add(replaceReview)
+                    }
+                }
             }
             val doneEditIntent = Intent(this, MovieListScreen::class.java)
             doneEditIntent.putExtra("user", user)
