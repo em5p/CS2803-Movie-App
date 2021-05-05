@@ -29,19 +29,18 @@ class EditReview: AppCompatActivity() {
 
         edit_done_button.setOnClickListener {
             val title = intent.getStringExtra("title")
+            Log.i("EditReview", "title: " + title.toString())
             val rating = edit_rating.text.toString().toDouble()
             Log.i("EditReview", "rating: " + rating)
             val review = edit_review.text.toString()
             Log.i("EditReview", "review: " + review)
             val provider = edit_provider.text.toString()
             Log.i("EditReview", "provider: " + provider)
-            if (title.isNullOrEmpty() && review.isEmpty() && provider.isNotEmpty()) {
-                val replaceReview = title?.let { it1 -> MovieReviewEntity(0, user, it1, rating, provider, review) }
-                if (replaceReview != null) {
-                    movieViewModel.updateReview(replaceReview)
-                }
+            if (!title.isNullOrEmpty() && review.isNotEmpty() && provider.isNotEmpty()) {
+                Log.i("EditReview", "inside")
+                val replaceReview = MovieReviewEntity(0, user, title, rating, provider, review)
+                movieViewModel.updateReview(replaceReview)
             }
-
             val doneEditIntent = Intent(this, MovieListScreen::class.java)
             doneEditIntent.putExtra("user", user)
             startActivityForResult(doneEditIntent, DONE_EDIT)

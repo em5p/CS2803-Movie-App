@@ -25,6 +25,9 @@ interface MovieReviewDao {
     @Query("SELECT title FROM movieReviewInfo WHERE username = :user")
     suspend fun getAllTitles(user: String): List<String>
 
+    @Query("SELECT * FROM movieReviewInfo WHERE username = :user AND title = :title_")
+    suspend fun getSpecificMovie(user: String, title_: String): MovieReviewEntity
+
 
     @Query("UPDATE movieReviewInfo SET rating = :newRating, provider = :newProvider, review = :newReview WHERE username = :user AND title = :title_")
     suspend fun updateReview(newRating: String, newProvider: String, newReview: String, user: String, title_: String)

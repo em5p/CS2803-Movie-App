@@ -77,11 +77,14 @@ class MovieViewModel(
     fun updateReview(reviewEntity: MovieReviewEntity) {
         var username = reviewEntity.username
         var title = reviewEntity.title
-        var rating = reviewEntity.title
+        var rating = reviewEntity.rating.toString()
         var provider = reviewEntity.provider
-        var review = reviewEntity.provider
+        var review = reviewEntity.review
         viewModelScope.launch {
+            Log.i("MovieViewModel", "og review: " + reviewEntity.toString())
             database.updateReview(rating, provider, review, username, title)
+            val movie = database.getSpecificMovie(username, title)
+            Log.i("MovieViewModel", "new review: " + movie.toString())
             Log.i("MovieViewModel", "movie updated! " + reviewEntity.title)
         }
     }
